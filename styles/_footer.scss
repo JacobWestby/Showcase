@@ -1,0 +1,27 @@
+footer {
+    min-height: 100vh;
+    background-image: url("../images/footerBckgrnd.png");
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer__cont {
+    width: 60%;
+    height: 60vh;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+
+    img {
+        align-self: flex-start;
+        max-width: 90px;
+        margin-left: 5rem;
+    }
+
+    &-text {
+        align-self: center;
+        width: 60%;
+        height: 50%;
+    }
+}
