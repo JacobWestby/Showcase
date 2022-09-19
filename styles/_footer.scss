@@ -16,12 +16,22 @@ footer {
     img {
         align-self: flex-start;
         max-width: 90px;
-        margin-left: 5rem;
+        margin-left: 5rem; 
+        backdrop-filter: blur(8px);
+        padding: 1rem;
+        box-shadow: inset 0px 0px 5px -2px rgb(105, 202, 254);
+        border-radius: 2px;
     }
 
     &-text {
         align-self: center;
         width: 60%;
-        height: 50%;
+        height: 40%;
+        backdrop-filter: blur(8px);
+        border-radius: 2px;
+        line-height: 1.5;
+        font-size: 1.1rem;
+        padding: 2rem;
+        box-shadow: inset 0px 0px 5px -2px rgb(105, 202, 254);
     }
 }

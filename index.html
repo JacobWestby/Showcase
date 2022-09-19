@@ -20,10 +20,16 @@
             <button class="btn3">Cool</button>
           </div>
           <div class="header__cont-inner-circles">
-            Hello
-            <div class="header__cont-inner-circles-outer">
-              <div class="header__cont-inner-circles-inner"></div>
-            </div>
+            <img src="./images/bigCircle.svg" alt="Big circle" class="header__cont-inner-circles-outer" />
+            <svg class="header__cont-inner-circles-inner" viewbox="0 0 400 400">
+              <circle cx="180" cy="290" r="4rem" fill="#0099ff" />
+            </svg>
+
+            <!-- <div class="header__cont-inner-circles-inner">
+                <svg class="circle-inner" height="10rem" width="10rem">
+                  <circle cx="10" cy="10" r="5rem" fill="#000" />
+                </svg>
+              </div> -->
           </div>
         </div>
       </div>
@@ -38,10 +44,12 @@
       <div class="main__cont">
         <div class="main__cont-inner">
           <h2>Write a short message</h2>
-          <form action="">
-            <input type="textarea" class="main__cont-inner-text" />
-            <input type="button" class="main__cont-inner-btn" />
-          </form>
+          <div class="form__cont">
+            <form class="form__cont-form" action="" id="message">
+              <button type="submit" class="form__cont-form-btn">Submit</button>
+            </form>
+            <textarea name="message" form="message" cols="60" rows="10" class="form__cont-form-text"></textarea>
+          </div>
         </div>
       </div>
     </main>
