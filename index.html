@@ -6,11 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="styles/reset.css" />
     <link rel="stylesheet" href="styles/index.css" />
-    <link rel="stylesheet" href="script/script.js" defer />
+    <script src="script/script.js" defer></script>
     <title>Showcase</title>
   </head>
   <body>
-    <header>
+    <header id="header">
       <div class="header__cont">
         <h1>Showcase</h1>
         <div class="header__cont-inner">
@@ -22,14 +22,8 @@
           <div class="header__cont-inner-circles">
             <img src="./images/bigCircle.svg" alt="Big circle" class="header__cont-inner-circles-outer" />
             <svg class="header__cont-inner-circles-inner" viewbox="0 0 400 400">
-              <circle cx="180" cy="290" r="4rem" fill="#0099ff" />
+              <circle id="smallCircle" cx="120" cy="230" r="4rem" fill="#0099ff" />
             </svg>
-
-            <!-- <div class="header__cont-inner-circles-inner">
-                <svg class="circle-inner" height="10rem" width="10rem">
-                  <circle cx="10" cy="10" r="5rem" fill="#000" />
-                </svg>
-              </div> -->
           </div>
         </div>
       </div>
