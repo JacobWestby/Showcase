@@ -10,7 +10,6 @@ footer {
     width: 60%;
     height: 60vh;
     display: flex;
-    justify-content: space-between;
     flex-direction: column;
 
     img {
@@ -33,5 +32,10 @@ footer {
         font-size: 1.1rem;
         padding: 2rem;
         box-shadow: inset 0px 0px 5px -2px rgb(105, 202, 254);
+
+        p {
+            transition: all ease-in 2s;
+            opacity: 0;
+        }
     }
 }
