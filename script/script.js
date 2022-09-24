@@ -12,14 +12,16 @@ const textArea = document.querySelector(".form__cont-form-text");
 const form = document.querySelector(".form__cont-form");
 const bottomText = document.querySelector(".footer__cont-text-p");
 const formBtn = document.querySelector(".form__cont-form-btn");
-const charCounter = document.querySelector("#char__count");
+let charCounter = document.querySelector("#char__count");
 
 const abc = ["a", "b", "c", "d", "e", "f"];
-const maxChar = 30;
+const maxChar = 220;
 let typeWriterMessage = "";
+let message = "";
+
 
 // On click, set new wave background
-let i = 0;
+let i = 1;
 
 btn1.addEventListener("click", () => {
     i === 6 ? i = 1 : i++;
@@ -57,19 +59,23 @@ const observer = new IntersectionObserver((entries) => {
 observer.observe(mainCont);
 
 // Get message 
-let message;
-
 textArea.addEventListener("input", () => {
     message = textArea.value;
+    bottomText.innerHTML = "";
     // Count characters
     minCharCounter();
+    x = 0;
 });
 
 // Send message
 formBtn.addEventListener("click", () => {
-    window.scrollTo(0, document.body.scrollHeight);
-    typeWriter();
-    fadeInText()
+    if (message.length >= 30) {
+        window.scrollTo(0, document.body.scrollHeight);
+        typeWriter();
+        fadeInText();
+        textArea.value = "";
+        charCounter.textContent = "0/30";
+    }
 });
 
 // Character counter
@@ -81,9 +87,11 @@ const minCharCounter = () => {
         charCounter.style.color = "red";
     } else if (enteredChars > 12 && enteredChars < 30) {
         charCounter.style.color = "orange";
-    } else if (enteredChars > 30) {
+    } else if (enteredChars >= 30 && enteredChars < 220) {
         charCounter.style.color = "lightGreen";
-    };
+    } else if (enteredChars === 220) {
+        charCounter.style.color = "red";
+    }
 };
 
 // Make message fadeIn
@@ -97,12 +105,13 @@ const typeWriter = () => {
     if (x < message.length) {
         bottomText.innerHTML += message.charAt(x);
         x++
-        setTimeout(typeWriter, 150);
+        setTimeout(typeWriter, 100);
     };
 };
-// todo
-// set minimum amount of chars and error if false
-// set default message if minimum amount of chars is false
 
+// todo
+
+// Fonts / sizes
+// Make responsive
 
 

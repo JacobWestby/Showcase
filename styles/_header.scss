@@ -10,38 +10,66 @@ header {
     flex-direction: column;
     background: rgb(86,117,114);
     background: linear-gradient(143deg, rgba(86, 117, 114, 0.547) 30%, rgba(255,255,255,1) 30%);
+
+    .scroll__down {
+        text-decoration: none;
+        color: rgb(128, 128, 128);
+        padding: 1rem;
+    }
+
+    .scroll__down:hover {
+        animation: 2s infinite bob;
+        color: #834BA1; 
+    }
+
+    @keyframes bob {
+        0% {
+            transform: translate(0rem);
+        }
+
+        50% {
+            transform: translate(0rem, -0.5rem);
+        }
+
+        100% {
+            transform:translate(0rem);
+        }
+    }
 }
 
 .header__cont {
     width: 90%;
-    max-height: 60vh;
+    max-height: 100vh;
     height: 100%;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     align-items: center;
 
     &-inner {
         display: flex;
-        justify-content: space-between;
+        justify-content: space-around;
         align-items: center;
         width: 90%;
         height: fit-content;
 
         &-btns {
+            justify-self: flex-start;
             display: flex;
-            width: 40%;
+            width: 30%;
             height: 40%;
             justify-content: space-between;
 
             button {
-                height: 2.5rem;
-                width: 7rem;
+                height: 3rem;
+                width: 8rem;
                 border-radius: 8px;
                 border: none;
+                box-shadow: inset 0px 0px 3px -1px, 0px 0px 3px -1px;
             }
 
             .btn1 {
-                background-color: rgba(0, 153, 255, 0.266);
+                background-color: rgba(0, 153, 255, 0.691);
                 background-image: url(../images/wave2.svg);
                 background-repeat: no-repeat;
                 background-size: cover;
@@ -94,46 +122,48 @@ header {
         &-circles {
             display: grid;
             grid-template: 1 / 1;
-      
+            max-width: 400px;
 
             &-outer {
                 grid-row: 1;
                 grid-column: 1;
-                width: 100%;
+                width: 80%;
                 height: auto;
                 opacity: 0.5;
+                align-self: center;
+                justify-self: center;
             }
 
             &-inner {
                 grid-row: 1;
                 grid-column: 1;
                 display: inline;
-                height: 30rem;
-                width: 30rem;
+                height: 25rem;
+                width: 25rem;
                 animation-duration: 2s;
                 // animation-name: slide;
                 animation-fill-mode: forwards;
                 transition: all 0.1s;
             }
-            
-            @keyframes slide {
-                0% {
-                }
-
-                100% {
-                    rotate: 170deg;
-                    transform: translate(0%, -10%);
-                }
-            }
             }
         }
     }
 
+    .fadeOut {
+        opacity: 0;
+    }
+
+    .fadeIn {
+        opacity: 1;
+    }
 
 .header__bottom-background {
     background-image: url("../images/wave1.svg");
     background-size: cover;
+    background-position: 0px, 1000px;
+
     width: 100%;
-    min-height: 30vh;
+    min-height: 40vh;
     background-repeat: no-repeat;
+    transition: all ease-in-out 0.5s;
 }

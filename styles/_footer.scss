@@ -15,7 +15,7 @@ footer {
     img {
         align-self: flex-start;
         max-width: 90px;
-        margin-left: 5rem; 
+        margin-left: 1rem; 
         backdrop-filter: blur(8px);
         padding: 1rem;
         box-shadow: inset 0px 0px 5px -2px rgb(105, 202, 254);
@@ -32,10 +32,13 @@ footer {
         font-size: 1.1rem;
         padding: 2rem;
         box-shadow: inset 0px 0px 5px -2px rgb(105, 202, 254);
+        background-color: rgba(226, 226, 226, 0.074);
 
         p {
             transition: all ease-in 2s;
             opacity: 0;
+            overflow-wrap: break-word;
+            inline-size: 100%;
         }
     }
 }
