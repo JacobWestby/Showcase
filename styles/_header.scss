@@ -66,6 +66,21 @@ header {
                 border-radius: 8px;
                 border: none;
                 box-shadow: inset 0px 0px 3px -1px, 0px 0px 3px -1px;
+                animation: 0.8s infinite bounce;
+            }
+
+            @keyframes bounce {
+                0% {
+                    transform: translate(0rem);
+                }
+        
+                50% {
+                    transform: translate(0rem, -0.1rem);
+                }
+        
+                100% {
+                    transform:translate(0rem);
+                }
             }
 
             .btn1 {
@@ -102,22 +117,8 @@ header {
                     background-position-x: 0px;
                     background-color: beige;
             }
-
-            .btn3 {
-                align-self: flex-end;
-                transition: all ease-in-out 1s;
-            }
-
-            .btn3:hover {
-                rotate: 360deg;
-                background: rgb(224,212,69);
-                background: linear-gradient(90deg, 
-                rgba(224,212,69,1) 10%,
-                rgba(255,255,255,1) 10%,
-                rgba(255,255,255,1) 90%,
-                rgba(224,212,69,1) 90%);
-            }
         }
+
 
         &-circles {
             display: grid;
