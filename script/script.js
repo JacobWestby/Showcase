@@ -46,7 +46,7 @@ window.addEventListener("scroll", () => {
     smallCircle.style.transform = `rotate(${scrollPos}deg)`;
 });
 
-// Slide/fade in text section
+// Slide/fade in text box
 const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
         if (entry.isIntersecting) {
@@ -113,5 +113,6 @@ const typeWriter = () => {
 
 // Fonts / sizes
 // Make responsive
+// Style for 4k
 
 

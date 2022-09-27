@@ -1,3 +1,5 @@
+@import "mixins";
+
 header {
     max-width: 1580px;
     width: 100%;
@@ -48,10 +50,10 @@ header {
 
     &-inner {
         display: flex;
-        justify-content: space-around;
+        justify-content: space-evenly;
         align-items: center;
-        width: 90%;
-        height: fit-content;
+        width: 100%;
+        min-height: 50vh;
 
         &-btns {
             justify-self: flex-start;
@@ -59,10 +61,10 @@ header {
             width: 30%;
             height: 40%;
             justify-content: space-between;
-
+            
             button {
                 height: 3rem;
-                width: 8rem;
+                width: 10rem;
                 border-radius: 8px;
                 border: none;
                 box-shadow: inset 0px 0px 3px -1px, 0px 0px 3px -1px;
@@ -88,8 +90,10 @@ header {
                 background-image: url(../images/wave2.svg);
                 background-repeat: no-repeat;
                 background-size: cover;
-                background-position-y: 30px;
+                background-position-y: 45px;
                 transition: all ease-in-out 0.3s;
+                margin-right: 2rem;
+
             }
 
             .btn1:hover {
@@ -123,7 +127,8 @@ header {
         &-circles {
             display: grid;
             grid-template: 1 / 1;
-            max-width: 400px;
+            width: 24vw;
+            height: 24vh;
 
             &-outer {
                 grid-row: 1;
@@ -139,11 +144,8 @@ header {
                 grid-row: 1;
                 grid-column: 1;
                 display: inline;
-                height: 25rem;
-                width: 25rem;
-                animation-duration: 2s;
-                // animation-name: slide;
-                animation-fill-mode: forwards;
+                height: 15rem;
+                width: 15rem;
                 transition: all 0.1s;
             }
             }
@@ -168,3 +170,53 @@ header {
     background-repeat: no-repeat;
     transition: all ease-in-out 0.5s;
 }
+
+@include break {
+    .header__cont {
+        &-inner {
+            &-btns {
+                flex-direction: column;
+                justify-content: space-evenly;
+                height: 80%;
+
+                button {
+                    width: 30vw;
+                }
+                .btn1 {
+                    align-self: center;
+                    margin-right: 0;
+                }
+            }
+
+            &-circles {
+                display: grid;
+                grid-template: 1 / 1;
+                width: 40vw;
+                height: 40vh;
+                
+    
+                &-outer {
+                    grid-row: 1;
+                    grid-column: 1;
+                    width: 80%;
+                    height: auto;
+                    opacity: 0.5;
+                    align-self: center;
+                    justify-self: center;
+                }
+    
+                &-inner {
+                    grid-row: 1;
+                    grid-column: 1;
+                    display: inline;
+                    height: 9rem;
+                    width: 9rem;
+                    animation-duration: 2s;
+                    // animation-name: slide;
+                    animation-fill-mode: forwards;
+                    transition: all 0.1s;
+                }
+                }
+            }
+        }
+        }

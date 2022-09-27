@@ -42,3 +42,35 @@ footer {
         }
     }
 }
+
+@include break {
+    footer {
+        min-height: 90vh;
+        background-image: url("../images/footerBckgrnd.png");
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .footer__cont {
+        width: 80%;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+    
+        img {
+            width: 20vw;
+            margin-left: 1rem; 
+        }
+    
+        &-text {
+            height: 55%;
+            padding: 1rem;
+
+            p {
+                
+            }
+        }
+    }
+    
+}

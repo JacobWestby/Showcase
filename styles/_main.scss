@@ -56,6 +56,8 @@ main {
             border-radius: 5px;
             outline: none;
             padding: 1rem;
+            height: 20vh;
+            width: 40vw;
         }
 
         &-text:focus {
@@ -64,9 +66,10 @@ main {
         }
 
         &-btn {
-            width: 7vw;
-            height: 5vh;
+            width: 10vw;
+            height: 7vh;
             margin-top: 2rem;
+            font-size: 1rem;
             border: none;
             box-shadow: inset 0px 0px 5px -2px, 0px 0px 5px -1px;
             resize: none;
@@ -101,17 +104,49 @@ main {
     background-color: #764390;
     display: flex;
 
-    .main__bottom-background1 {
+    &-background1 {
         background: rgb(178,68,177);
-        background: linear-gradient(38deg, #8cc6fc 40%, rgba(86,117,114,0) 30%);
+        background: linear-gradient(38deg, #8cc6fc 35%, rgba(86,117,114,0) 35%);
         width: 50%;
         height: 100%;
     }
 
-    .main__bottom-background2 {
+    &-background2 {
         background: rgb(86,117,114);
         background: linear-gradient(142deg, rgba(86,117,114,0) 68%, #8cc6fc 68%);
         width: 50%;
         height: 100%;
     }
+}
+
+@include break {
+    .main__cont {
+        translate: -10rem;
+        width: 80%;
+        min-height: 50vh;
+        padding: 0.5rem;
+
+        .form__cont {
+            &-form {
+                &-text {
+                    width: 55vw;
+                }
+                &-btn {
+                    font-size: 0.9rem;
+                    height: 6vh;
+                    width: 20vw;
+                }
+            }
+        }
+    }
+
+    .main__bottom {
+        &-background1 {
+        background: linear-gradient(38deg, #8cc6fc 20%, rgba(86,117,114,0) 20%);
+    }
+        &-background2 {
+        background: linear-gradient(142deg, rgba(86,117,114,0) 78%, #8cc6fc 68%);
+
+    }
+}
 }
