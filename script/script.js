@@ -146,7 +146,7 @@ textArea.addEventListener("input", () => {
     bottomText.innerHTML = "";
     // Count characters
     minCharCounter();
-    x = 0;
+    int = 0;
 });
 
 // Send message
