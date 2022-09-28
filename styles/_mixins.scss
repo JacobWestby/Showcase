@@ -1,0 +1,8 @@
+$breakpointGlobal: 605px;
+$breakpointMin: 320px;
+
+@mixin break {
+    @media (max-width: $breakpointGlobal) {
+        @content;
+    }
+}

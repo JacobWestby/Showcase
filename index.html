@@ -6,27 +6,84 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="styles/reset.css" />
     <link rel="stylesheet" href="styles/index.css" />
-    <link rel="stylesheet" href="script/script.js" defer />
+    <script defer src="script/script.js"></script>
     <title>Showcase</title>
   </head>
   <body>
-    <header>
+    <header id="header">
       <div class="header__cont">
         <h1>Showcase</h1>
-        <div class="header__cont-btns">
-          <button>Hey</button>
-          <button>Hello</button>
-          <button>Cool</button>
-        </div>
-        <div class="header__cont-circles">
-          <div class="header__cont-circles-outer">
-            <div class="header__cont-circles-inner"></div>
+        <div class="header__cont-inner">
+          <div class="header__cont-inner-btns">
+            <button class="btn1">Click me!</button>
+            <button class="btn2">Click me!</button>
+          </div>
+          <div class="header__cont-inner-circles">
+            <svg class="header__cont-inner-circles-inner" viewbox="0 0 500 500">
+              <circle cx="250" cy="50" r="5vw" fill="#0099ff" class="circle-1" />
+            </svg>
+
+            <svg class="header__cont-inner-circles-inner" viewbox="0 0 500 500">
+              <circle cx="250" cy="120" r="5vw" fill="#0099ff" class="circle-2" />
+            </svg>
+
+            <svg class="header__cont-inner-circles-inner" viewbox="0 0 500 500">
+              <circle cx="250" cy="120" r="5vw" fill="#0099ff" class="circle-3" />
+            </svg>
+
+            <svg class="header__cont-inner-circles-inner" viewbox="0 0 500 500">
+              <circle cx="250" cy="120" r="5vw" fill="#0099ff" class="circle-4" />
+            </svg>
+
+            <svg class="header__cont-inner-circles-inner" viewbox="0 0 500 500">
+              <circle cx="250" cy="120" r="5vw" fill="#0099ff" class="circle-5" />
+            </svg>
           </div>
         </div>
       </div>
+      <a class="scroll__down" href="#scrollto">Scroll down</a>
       <div class="header__bottom-background">
         <!-- Empty div with bottom background -->
       </div>
     </header>
+
+    <div class="main__top-background2">
+      <!-- Empty div with top main background2 -->
+    </div>
+
+    <main>
+      <div class="main__top-background1">
+        <!-- Empty div with top main background1 -->
+      </div>
+      <div id="scrollto" class="main__cont">
+        <h2>Write a short message</h2>
+        <div class="form__cont">
+          <form class="form__cont-form" id="message">
+            <button type="button" class="form__cont-form-btn">Submit</button>
+          </form>
+          <span id="char__count">0/30</span>
+          <textarea maxlength="220" placeholder="Minimum 30 characters" name="message" form="message" class="form__cont-form-text"></textarea>
+        </div>
+      </div>
+      <div class="main__bottom">
+        <div class="main__bottom-background1">
+          <!-- Empty div with bottom background -->
+        </div>
+        <div class="main__bottom-background2">
+          <!-- Empty div with bottom background -->
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <div class="footer__cont">
+        <img src="./images/blankProfile.svg" alt="Blank profile picture" />
+        <div class="footer__cont-text">
+          <p class="footer__cont-text-p">
+            <!-- Content comes from JS -->
+          </p>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>
