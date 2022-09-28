@@ -1,7 +1,19 @@
 @import "mixins";
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;700&family=Trykker&display=swap');
+
+p {
+    font-family: 'Trykker', serif;
+}
+
+button {
+    font-family: 'Rubik', sans-serif;
+}
+
+h1 {
+    font-family: 'Rubik', sans-serif;
+}
 
 header {
-    max-width: 1580px;
     width: 100%;
     display: flex;
     align-items: center;
@@ -12,6 +24,7 @@ header {
     flex-direction: column;
     background: rgb(86,117,114);
     background: linear-gradient(143deg, rgba(86, 117, 114, 0.547) 30%, rgba(255,255,255,1) 30%);
+    transition: all ease-in-out 0.9;
 
     .scroll__down {
         text-decoration: none;
@@ -47,6 +60,12 @@ header {
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+
+    h1 {
+        font-size: 2.5rem;
+        color: rgb(127, 174, 216);
+        text-shadow: 1px 1px rgba(0, 0, 0, 0.377);
+    }
 
     &-inner {
         display: flex;
@@ -128,25 +147,20 @@ header {
             display: grid;
             grid-template: 1 / 1;
             width: 24vw;
-            height: 24vh;
-
-            &-outer {
-                grid-row: 1;
-                grid-column: 1;
-                width: 80%;
-                height: auto;
-                opacity: 0.5;
-                align-self: center;
-                justify-self: center;
-            }
+            height: 100%;
 
             &-inner {
                 grid-row: 1;
                 grid-column: 1;
                 display: inline;
-                height: 15rem;
-                width: 15rem;
-                transition: all 0.1s;
+                height: 100%;
+                width: 100%;
+            }
+
+            &-inner > * {
+                opacity: 0;
+                transition: all ease-in 0.9s;
+                filter: drop-shadow(0px 1px 5px rgb(0 0 0 / 0.5));
             }
             }
         }
@@ -192,29 +206,14 @@ header {
                 display: grid;
                 grid-template: 1 / 1;
                 width: 40vw;
-                height: 40vh;
-                
-    
-                &-outer {
-                    grid-row: 1;
-                    grid-column: 1;
-                    width: 80%;
-                    height: auto;
-                    opacity: 0.5;
-                    align-self: center;
-                    justify-self: center;
-                }
+                height: 100%;
     
                 &-inner {
                     grid-row: 1;
                     grid-column: 1;
                     display: inline;
-                    height: 9rem;
-                    width: 9rem;
-                    animation-duration: 2s;
-                    // animation-name: slide;
-                    animation-fill-mode: forwards;
-                    transition: all 0.1s;
+                    height: 100%;
+                    width: 100%
                 }
                 }
             }

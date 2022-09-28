@@ -13,50 +13,132 @@ const form = document.querySelector(".form__cont-form");
 const bottomText = document.querySelector(".footer__cont-text-p");
 const formBtn = document.querySelector(".form__cont-form-btn");
 let charCounter = document.querySelector("#char__count");
+const circle1 = document.querySelector(".circle-1");
+const circle2 = document.querySelector(".circle-2");
+const circle3 = document.querySelector(".circle-3");
+const circle4 = document.querySelector(".circle-4");
+const circle5 = document.querySelector(".circle-5");
+const scrollDown = document.querySelector(".scroll__down");
 
+const circleArr = [circle1, circle2, circle3, circle4, circle5];
 const abc = ["a", "b", "c", "d", "e", "f"];
 const maxChar = 220;
 let typeWriterMessage = "";
 let message = "";
-
+let circlesIndex = 0;
 
 // On click, set new wave background
+// On click move cirlces to random loacation
+// Resets circles to original pos after 20sec
 let i = 1;
 
 btn1.addEventListener("click", () => {
     i === 6 ? i = 1 : i++;
+    circlesIndex = 0;
 
     wave.style.backgroundImage = `url('../images/wave${i}.svg')`;
+    circleArr.forEach((circle) => {
+        circle.style.cx = `${getRandom(100, 400)}`;
+        circle.style.cy = `${getRandom(100, 400)}`;
+    });
+    setTimeout(() => {
+        circlesPageEnter()
+    }, 20000);
 });
+
+// Random position for circles
+const getRandom = (min, max) => {
+    return Math.floor(Math.random() * (max - min + 1) + min);
+};
 
 // On click, set new colors
+const h = Math.floor(Math.random() * 8);
+const e = Math.floor(Math.random() * 8);
+let c = abc[Math.floor(Math.random() * 5)];
+let x = abc[Math.floor(Math.random() * 5)];
+
 btn2.addEventListener("click", () => {
-    const h = Math.floor(Math.random() * 8);
-    const e = Math.floor(Math.random() * 8);
-    const c = abc[Math.floor(Math.random() * 5)];
-    const x = abc[Math.floor(Math.random() * 5)];
-
-    header.style.backgroundImage = `linear-gradient(143deg, #${h + e + c + x} 30%, rgba(255,255,255,1) 30%)`;
-    smallCircleColor.style.fill = `#${h + c + x + c}`;
+    header.style.background = `linear-gradient(143deg, #${h + e + c + x} 30%, rgba(255,255,255,1) 30%)`;
+    circleArr.forEach((circle) => {
+        c = abc[Math.floor(Math.random() * 5)];
+        x = abc[Math.floor(Math.random() * 5)];
+        circle.style.fill = `#${h + c + x + c}`;
+    });
 });
 
-// Move circle on scroll
-window.addEventListener("scroll", () => {
-    let scrollPos = Math.floor(window.scrollY) / 4;
-    smallCircle.style.transform = `rotate(${scrollPos}deg)`;
-});
+// Set random color for circles on load
+document.body.onload = () => {
+    // Set "media queries" for different screen width
+    circleSize();
+    circlesPageEnter();
+    circleArr.forEach((circle) => {
+        c = abc[Math.floor(Math.random() * 5)];
+        x = abc[Math.floor(Math.random() * 5)];
+        circle.style.fill = `#${h + c + x + c}`;
+    });
+};
+
+// Move individual circles a set distance and fade in recursivly
+let circlesX = 250;
+let circlesY = 120
+
+const circlesPageEnter = () => {
+    if (circlesIndex < circleArr.length) {
+        if (circlesIndex === 0) {
+            circleArr[circlesIndex].style.cx = `${circlesX}`;
+            circleArr[circlesIndex].style.cy = `${circlesY}`;
+            circleArr[circlesIndex].style.opacity = 1;
+        } else if (circlesIndex === 1) {
+            circleArr[circlesIndex].style.cx = `${circlesX + 120}`;
+            circleArr[circlesIndex].style.cy = `${circlesY + 100}`;
+            circleArr[circlesIndex].style.opacity = 1;
+
+        } else if (circlesIndex === 2) {
+            circleArr[circlesIndex].style.cx = `${circlesX}`;
+            circleArr[circlesIndex].style.cy = `${circlesY + 200}`;
+            circleArr[circlesIndex].style.opacity = 1;
+
+        } else if (circlesIndex === 3) {
+            circleArr[circlesIndex].style.cx = `${circlesX - 120}`;
+            circleArr[circlesIndex].style.cy = `${circlesY + 100}`;
+            circleArr[circlesIndex].style.opacity = 1;
+
+        } else if (circlesIndex === 4) {
+            circleArr[circlesIndex].style.cx = `${circlesX}`;
+            circleArr[circlesIndex].style.cy = `${circlesY + 300}`;
+            circleArr[circlesIndex].style.opacity = 1;
+        }
+
+        circlesIndex++;
+        setTimeout(circlesPageEnter, 800);
+    };
+};
+
+// Change circle size based on view width
+const circleSize = () => {
+    let viewWidth = window.innerWidth;
+
+    circleArr.forEach((circle) => {
+        if (viewWidth <= 900 && viewWidth > 450) {
+            circle.style.r = "70";
+        } else if (viewWidth <= 450) {
+            circle.style.r = "80";
+        } else if (viewWidth >= 1700) {
+            circle.style.r = "50"
+        }
+    });
+};
 
 // Slide/fade in text box
-const observer = new IntersectionObserver((entries) => {
+const slideObserver = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
         if (entry.isIntersecting) {
             entry.target.style.opacity = '1';
             entry.target.style.translate = '0';
         }
-
     });
 });
-observer.observe(mainCont);
+slideObserver.observe(mainCont);
 
 // Get message 
 textArea.addEventListener("input", () => {
@@ -100,19 +182,14 @@ const fadeInText = () => {
 };
 
 // Make message typed
-let x = 0;
+let int = 0;
 const typeWriter = () => {
-    if (x < message.length) {
-        bottomText.innerHTML += message.charAt(x);
-        x++
+    if (int < message.length) {
+        bottomText.innerHTML += message.charAt(int);
+        int++
         setTimeout(typeWriter, 100);
     };
 };
 
-// todo
-
-// Fonts / sizes
-// Make responsive
-// Style for 4k
 
 
